@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Products | Royal Mahira Group</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#0f0f0f;
+  --panel:#171717;
+  --gold:#c8a96e;
+  --text:#f5f5f5;
+  --muted:#b7b7b7;
+  --line:#262626;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+/* NAV */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,0.45);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.menu-toggle,
+.menu-close{
+  display:none;
+  border:0;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+}
+
+.nav-wrap{
+  width:min(1300px,92%);
+  margin:auto;
+  height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+text-decoration:none;
+color:var(--gold);
+font-size:1.25rem;
+font-weight:700;
+}
+
+.logo img{
+width:46px;
+height:46px;
+object-fit:contain;
+display:block;
+}
+
+.logo span{
+color:var(--gold);
+line-height:1;
+}
+
+.nav-links{
+  display:flex;
+  gap:32px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#fff;
+  font-size:0.95rem;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  min-height:72vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:140px 8% 100px;
+  overflow:hidden;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(rgba(0,0,0,0.62),rgba(0,0,0,0.8)),
+  url('https://images.unsplash.com/photo-1514996937319-344454492b37?w=1800&auto=format&fit=crop') center/cover;
+  animation:zoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes zoom{
+  from{transform:scale(1);}
+  to{transform:scale(1.08);}
+}
+
+.hero-copy{
+  position:relative;
+  z-index:2;
+  max-width:850px;
+}
+
+.hero-eyebrow{
+  color:var(--gold);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  font-size:0.9rem;
+}
+
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:5.4rem;
+  line-height:0.95;
+  margin-bottom:26px;
+}
+
+.hero h1 em{
+  color:var(--gold);
+  font-style:italic;
+}
+
+.hero-sub{
+  color:var(--muted);
+  line-height:1.9;
+  font-size:1.05rem;
+  max-width:700px;
+  margin:auto;
+}
+
+/* PRODUCTS */
+
+.products{
+  width:min(1300px,92%);
+  margin:120px auto;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.eyebrow{
+  color:var(--gold);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+.section-head h2{
+  font-size:4rem;
+  font-family:'Cormorant Garamond',serif;
+  margin-bottom:20px;
+}
+
+.section-head h2 em{
+  color:var(--gold);
+}
+
+.section-head p{
+  max-width:700px;
+  margin:auto;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:28px;
+}
+
+.product-card{
+  background:var(--panel);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:28px;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+.product-card:hover{
+  transform:translateY(-8px);
+  background:#241f19;
+  box-shadow:0 0 35px rgba(200,169,110,0.12);
+}
+
+.product-card img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+}
+
+.product-content{
+  padding:34px;
+}
+
+.product-content h3{
+  margin-bottom:16px;
+  font-size:1.5rem;
+}
+
+.product-content p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:22px;
+}
+
+.product-meta{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.meta{
+  padding:8px 16px;
+  border-radius:999px;
+  background:#222;
+  color:var(--gold);
+  font-size:0.85rem;
+}
+
+
+/* UPCOMING PRODUCTS */
+
+.upcoming-card{
+  background:linear-gradient(135deg,#171717,#221d17);
+  border:1px dashed rgba(200,169,110,0.35);
+  position:relative;
+}
+
+.upcoming-badge{
+  position:absolute;
+  top:18px;
+  right:18px;
+  background:var(--gold);
+  color:#111;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+/* QUALITY */
+
+.quality{
+  width:min(1300px,92%);
+  margin:140px auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.quality img{
+  width:100%;
+  border-radius:28px;
+  height:620px;
+  object-fit:cover;
+}
+
+.quality h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:4rem;
+  line-height:1;
+  margin-bottom:24px;
+}
+
+.quality h2 em{
+  color:var(--gold);
+}
+
+.quality p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:18px;
+}
+
+.quality-list{
+  margin-top:30px;
+}
+
+.quality-list div{
+  margin-bottom:16px;
+  color:#ddd;
+}
+
+/* CTA */
+
+.cta{
+  width:min(1200px,92%);
+  margin:140px auto;
+  background:
+  linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.8)),
+  url('https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=1600&auto=format&fit=crop') center/cover;
+  border-radius:32px;
+  padding:90px 60px;
+  text-align:center;
+}
+
+.cta h2{
+  font-size:4rem;
+  font-family:'Cormorant Garamond',serif;
+  margin-bottom:24px;
+}
+
+.cta h2 em{
+  color:var(--gold);
+}
+
+.cta p{
+  max-width:700px;
+  margin:auto;
+  color:#ddd;
+  line-height:1.9;
+}
+
+.cta-btn{
+  display:inline-block;
+  margin-top:36px;
+  padding:15px 32px;
+  background:var(--gold);
+  color:#111;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  transition:0.3s;
+}
+
+.cta-btn:hover{
+  transform:translateY(-4px);
+}
+
+/* FOOTER */
+
+footer{
+background:#090909;
+padding:80px 70px 30px;
+margin-top:120px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:60px;
+padding-bottom:50px;
+border-bottom:1px solid rgba(200,169,110,0.15);
+}
+
+.footer-title{
+font-size:12px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:var(--gold);
+margin-bottom:25px;
+}
+
+.footer-text,
+.footer-links a{
+line-height:2;
+color:#999;
+font-size:14px;
+text-decoration:none;
+}
+
+.footer-links{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.footer-bottom{
+padding-top:30px;
+text-align:center;
+color:#777;
+font-size:13px;
+}
+
+@media(max-width:980px){
+
+  .nav-wrap{
+    height:auto;
+    min-height:78px;
+    padding:12px 0;
+  }
+
+  .nav-links{
+    gap:14px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+
+  .hero{
+    padding:130px 4% 90px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.8rem, 8vw, 4rem);
+  }
+
+  .quality{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .section-head h2,
+  .quality h2,
+  .cta h2{
+    font-size:clamp(2.4rem, 7vw, 3rem);
+  }
+
+  .product-grid{
+    gap:22px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+}
+@media (max-width: 1024px){
+
+.container{
+    width:92%;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+}
+
+@media (max-width: 768px){
+
+  .nav-wrap{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:10px 0;
+  }
+
+  .logo{
+    justify-content:center;
+    text-align:center;
+    font-size:1rem;
+  }
+
+  .menu-toggle{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:4px;
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+
+  .menu-toggle span{
+    display:block;
+    width:18px;
+    height:2px;
+    background:#fff;
+    border-radius:999px;
+  }
+
+  .nav-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    z-index:1040;
+  }
+
+  .nav-overlay.active{
+    display:block;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:0;
+    right:-320px;
+    width:280px;
+    max-width:82vw;
+    height:100vh;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+    padding:72px 16px 24px;
+    background:#111;
+    border-left:1px solid rgba(255,255,255,0.08);
+    box-shadow:-12px 0 30px rgba(0,0,0,0.35);
+    transition:right 0.28s ease;
+    z-index:1050;
+  }
+
+  .nav-links.open{
+    right:0;
+  }
+
+  .nav-links a{
+    width:100%;
+    padding:10px 12px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    font-size:0.95rem;
+  }
+
+  .menu-close{
+    display:block;
+    position:absolute;
+    top:14px;
+    right:14px;
+    font-size:1.4rem;
+  }
+
+  .hero{
+    min-height:auto;
+    text-align:center;
+    padding:110px 15px 60px;
+  }
+
+  .hero h1{
+    font-size:clamp(2rem, 9vw, 2.8rem);
+    line-height:1.05;
+  }
+
+  .hero-sub,
+  .section-head p,
+  .quality p,
+  .cta p,
+  .product-content p{
+    font-size:1rem;
+  }
+
+  .products,
+  .quality,
+  .cta,
+  footer{
+    width:min(100%, 94%);
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .product-grid{
+    grid-template-columns:1fr;
+  }
+
+  .product-card img{
+    height:260px;
+  }
+
+  .quality img{
+    height:auto;
+    max-height:420px;
+  }
+
+  .cta{
+    padding:60px 18px;
+  }
+
+}
+
+@media (max-width: 480px){
+
+  .nav-wrap{
+    align-items:center;
+  }
+
+  .nav-links{
+    width:280px;
+    max-width:82vw;
+  }
+
+  .nav-links a{
+    font-size:0.9rem;
+    text-align:left;
+    padding:10px 12px;
+  }
+
+  .hero h1{
+    font-size:clamp(1.9rem, 9vw, 2.3rem);
+  }
+
+  .section-head h2,
+  .quality h2,
+  .cta h2{
+    font-size:clamp(2rem, 9vw, 2.6rem);
+  }
+
+  .product-content{
+    padding:20px;
+  }
+
+  .product-meta{
+    gap:8px;
+  }
+
+  .meta{
+    font-size:0.78rem;
+    padding:7px 10px;
+  }
+
+  .cta-btn{
+    width:100%;
+    text-align:center;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-wrap">
+
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Royal Mahira Group Logo">
+      <span>Royal Mahira Group</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-overlay"></div>
+
+    <div class="nav-links" id="navLinks">
+      <button class="menu-close" type="button" aria-label="Close menu">&times;</button>
+      <a href="index.html">Home</a>
+      <a href='services.html'>Service</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="contacts.html">Contact</a>
+    </div>
+
+  </div>
+</nav>
+</nav>
+
+<section class="hero">
+
+<div class="hero-bg"></div>
+
+<div class="hero-copy">
+
+<div class="hero-eyebrow">
+Premium Edible Oil Collection
+</div>
+
+<h1>
+Healthy & Pure <br>
+<em>Food Products</em>
+</h1>
+
+<p class="hero-sub">
+We produce premium-quality edible oils and natural spices using modern extraction technology, hygienic processing, and trusted quality assurance systems.
+</p>
+
+</div>
+
+</section>
+
+<section class="products">
+
+<div class="section-head">
+
+<div class="eyebrow">Our Products</div>
+
+<h2>
+Premium <em>Oil & Spices</em>
+</h2>
+
+<p>
+Royal Mahira Group manufactures healthy, hygienic, and trusted food products made from carefully selected natural ingredients.
+</p>
+
+</div>
+
+<div class="product-grid">
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=900&auto=format&fit=crop" alt="">
+
+<div class="product-content">
+
+<h3>Sunflower Oil</h3>
+
+<p>
+Light, healthy, and nutrient-rich sunflower oil produced from premium sunflower seeds with advanced refining technology.
+</p>
+
+<div class="product-meta">
+<div class="meta">100% Pure</div>
+<div class="meta">Heart Healthy</div>
+<div class="meta">Premium Quality</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=900&auto=format&fit=crop" alt="">
+
+<div class="product-content">
+
+<h3>Soybean Oil</h3>
+
+<p>
+Refined soybean oil with excellent freshness, balanced nutrition, and hygienic processing standards.
+</p>
+
+<div class="product-meta">
+<div class="meta">Refined Oil</div>
+<div class="meta">Natural Seeds</div>
+<div class="meta">Fresh Production</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?w=900&auto=format&fit=crop" alt="">
+
+<div class="product-content">
+
+<h3>Mustard Oil</h3>
+
+<p>
+Traditional mustard oil with rich aroma and authentic flavor made from selected mustard seeds.
+</p>
+
+<div class="product-meta">
+<div class="meta">Traditional Taste</div>
+<div class="meta">Natural Aroma</div>
+<div class="meta">Pure Processing</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=900&auto=format&fit=crop" alt="">
+
+<div class="product-content">
+
+<h3>Premium Spices</h3>
+
+<p>
+Fresh and hygienically processed spices packed with natural taste, freshness, and rich flavor.
+</p>
+
+<div class="product-meta">
+<div class="meta">Fresh Pack</div>
+<div class="meta">Natural Flavor</div>
+<div class="meta">Quality Assured</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+
+<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&auto=format&fit=crop" alt="Flour">
+
+<div class="product-content">
+
+<h3>Premium Flour</h3>
+
+<p>
+Carefully processed wheat flour ensuring purity, consistency and superior baking performance.
+</p>
+
+<div class="product-meta">
+<div class="meta">Fine Quality</div>
+<div class="meta">Fresh Milling</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="products">
+
+<div class="section-head">
+
+<div class="eyebrow">Future Expansion</div>
+
+<h2>
+Upcoming <em>Products</em>
+</h2>
+
+<p>
+Royal Mahira Group is expanding its product portfolio to serve households with more trusted and essential daily-use products.
+</p>
+
+</div>
+
+<div class="product-grid">
+
+<div class="product-card upcoming-card">
+
+<div class="upcoming-badge">COMING SOON</div>
+
+<img src="https://images.unsplash.com/photo-1564419320461-6870880221ad?w=900&auto=format&fit=crop" alt="Mineral Water">
+
+<div class="product-content">
+
+<h3>Mineral Water</h3>
+
+<p>
+Pure, safe and refreshing drinking water processed through advanced purification and quality control systems.
+</p>
+
+<div class="product-meta">
+<div class="meta">Purified</div>
+<div class="meta">Safe Drinking Water</div>
+<div class="meta">Coming Soon</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="product-card upcoming-card">
+
+<div class="upcoming-badge">COMING SOON</div>
+
+<img src="https://images.unsplash.com/photo-1583947582886-f40ec95dd752?w=900&auto=format&fit=crop" alt="Tissue Paper">
+
+<div class="product-content">
+
+<h3>Tissue Paper</h3>
+
+<p>
+Soft, hygienic and premium-quality tissue products designed for everyday household and commercial use.
+</p>
+
+<div class="product-meta">
+<div class="meta">Soft Touch</div>
+<div class="meta">Hygienic</div>
+<div class="meta">Coming Soon</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="product-card upcoming-card">
+
+<div class="upcoming-badge">COMING SOON</div>
+
+<img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=900&auto=format&fit=crop" alt="Olive Oil">
+
+<div class="product-content">
+
+<h3>Olive Oil</h3>
+
+<p>
+Premium olive oil rich in natural goodness, ideal for healthy cooking and nutritional benefits.
+</p>
+
+<div class="product-meta">
+<div class="meta">Premium Grade</div>
+<div class="meta">Healthy Choice</div>
+<div class="meta">Coming Soon</div>
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</section>
+<section class="quality">
+
+<div>
+
+<div class="eyebrow">Quality Assurance</div>
+
+<h2>
+Maintaining <br>
+<em>International Standards</em>
+</h2>
+
+<p>
+From raw material collection to final packaging, we maintain strict quality control procedures to ensure healthy and hygienic products.
+</p>
+
+<p>
+Our advanced production systems and modern refining technology help us preserve purity, freshness, and nutritional value in every product.
+</p>
+
+<div class="quality-list">
+
+<div>✔ Premium Seed Selection</div>
+<div>✔ Advanced Refining Technology</div>
+<div>✔ Laboratory Quality Testing</div>
+<div>✔ Hygienic Packaging Systems</div>
+<div>✔ Safe & Healthy Food Production</div>
+
+</div>
+
+</div>
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=1000&auto=format&fit=crop" alt="">
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>
+Become Our <em>Business Partner</em>
+</h2>
+
+<p>
+We are committed to building strong nationwide partnerships through trusted products, premium quality, and efficient distribution systems.
+</p>
+
+<a href="contact.html" class="cta-btn">
+Contact Us
+</a>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+    <a href="index.html" class="logo">
+  <img src="images/logo.png" alt="Royal Mahira Group Logo">
+  <span>Royal Mahira Group</span>
+</a>
+
+<p class="footer-text" style="margin-top:25px;">
+Royal Mahira Group is a trusted edible oil and food manufacturing company focused on producing pure, healthy, and hygienic products using advanced processing technology.
+</p>
+
+</div>
+
+<div>
+
+<div class="footer-title">Products</div>
+
+<div class="footer-links">
+<a href="#">Soybean Oil</a>
+<a href="#">Sunflower Oil</a>
+<a href="#">Mustard Oil</a>
+<a href="#">Spices</a>
+</div>
+
+</div>
+
+<div>
+
+<div class="footer-title">Contact</div>
+
+<p class="footer-text">
+Bangladesh <br>
+Email: info@royalmahira.com <br>
+Phone: +8801XXXXXXXXX
+</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Royal Mahira Group. All Rights Reserved. Developed by ABRAR SHAHRIER ARNAB.
+</div>
+
+</footer>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const overlay = document.querySelector('.nav-overlay');
+  const closeBtn = document.querySelector('.menu-close');
+
+  function openMenu() {
+    navLinks.classList.add('open');
+    overlay.classList.add('active');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    overlay.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  });
+</script>
+
+</body>
+</html>
