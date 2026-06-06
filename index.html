@@ -57,6 +57,15 @@ nav{
   border-bottom:1px solid rgba(255,255,255,0.06);
 }
 
+.menu-toggle,
+.menu-close{
+  display:none;
+  border:0;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+}
+
 .nav-wrap{
   width:min(1300px,92%);
   margin:auto;
@@ -627,12 +636,89 @@ font-size:13px;
 @media (max-width: 768px){
 
   .nav-wrap{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:10px 0;
+  }
+
+  .logo{
     justify-content:center;
+    text-align:center;
+    font-size:1rem;
+  }
+
+  .menu-toggle{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:4px;
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+
+  .menu-toggle span{
+    display:block;
+    width:18px;
+    height:2px;
+    background:#fff;
+    border-radius:999px;
+  }
+
+  .nav-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    z-index:1040;
+  }
+
+  .nav-overlay.active{
+    display:block;
   }
 
   .nav-links{
+    position:fixed;
+    top:0;
+    right:-320px;
+    width:280px;
+    max-width:82vw;
+    height:100vh;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+    padding:72px 16px 24px;
+    background:#111;
+    border-left:1px solid rgba(255,255,255,0.08);
+    box-shadow:-12px 0 30px rgba(0,0,0,0.35);
+    transition:right 0.28s ease;
+    z-index:1050;
+  }
+
+  .nav-links.open{
+    right:0;
+  }
+
+  .nav-links a{
     width:100%;
-    justify-content:center;
+    padding:10px 12px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    font-size:0.95rem;
+  }
+
+  .menu-close{
+    display:block;
+    position:absolute;
+    top:14px;
+    right:14px;
+    font-size:1.4rem;
   }
 
   .hero{
@@ -702,33 +788,28 @@ font-size:13px;
 @media (max-width: 480px){
 
   .nav-wrap{
-    flex-direction:column;
+    flex-direction:row;
     align-items:center;
+    justify-content:space-between;
     gap:10px;
   }
 
   .logo{
-    width:100%;
+    width:auto;
     justify-content:center;
     text-align:center;
+    font-size:0.95rem;
   }
 
   .nav-links{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    width:100%;
-    gap:6px;
+    width:280px;
+    max-width:82vw;
   }
 
   .nav-links a{
-    font-size:0.82rem;
-    padding:6px 8px;
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:10px;
-    background:rgba(255,255,255,0.04);
-    text-align:center;
-    line-height:1.2;
+    font-size:0.9rem;
+    text-align:left;
+    padding:10px 12px;
   }
 
   .hero h1{
@@ -771,17 +852,25 @@ font-size:13px;
   <div class="nav-wrap">
 
     <a href="index.html" class="logo">
-  <img src="images/logo.png" alt="Royal Mahira Group Logo">
-  <span>Royal Mahira Group</span>
-</a>
+      <img src="images/logo.png" alt="Royal Mahira Group Logo">
+      <span>Royal Mahira Group</span>
+    </a>
 
-    <div class="nav-links">
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-overlay"></div>
+
+    <div class="nav-links" id="navLinks">
+      <button class="menu-close" type="button" aria-label="Close menu">&times;</button>
       <a href="#">Home</a>
       <a href='services.html'>Service</a>
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
       <a href="contacts.html">Contact</a>
-      
     </div>
 
   </div>
@@ -1036,9 +1125,41 @@ Phone: +8801XXXXXXXXX
 
 </footer>
 
-
-
 <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const overlay = document.querySelector('.nav-overlay');
+  const closeBtn = document.querySelector('.menu-close');
+
+  function openMenu() {
+    navLinks.classList.add('open');
+    overlay.classList.add('active');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    overlay.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  });
+
 
 const reveals=document.querySelectorAll('.what-card');
 
