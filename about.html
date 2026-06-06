@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>About Us | Royal Mahira Group</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#0f0f0f;
+  --panel:#171717;
+  --gold:#c8a96e;
+  --text:#f5f5f5;
+  --muted:#b7b7b7;
+  --line:#262626;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,0.45);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.menu-toggle,
+.menu-close{
+  display:none;
+  border:0;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+}
+
+.nav-wrap{
+  width:min(1300px,92%);
+  margin:auto;
+  height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+text-decoration:none;
+color:var(--gold);
+font-size:1.25rem;
+font-weight:700;
+}
+
+.logo img{
+width:46px;
+height:46px;
+object-fit:contain;
+display:block;
+}
+
+.logo span{
+color:var(--gold);
+line-height:1;
+}
+
+.nav-links{
+  display:flex;
+  gap:32px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#fff;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+.page-hero{
+  padding:170px 8% 120px;
+  text-align:center;
+  background:
+  linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.8)),
+  url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=1800&auto=format&fit=crop') center/cover;
+}
+
+.page-hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:5rem;
+}
+
+.page-hero h1 em{
+  color:var(--gold);
+}
+
+.page-hero p{
+  margin:auto;
+  margin-top:20px;
+  max-width:700px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.about-section{
+  width:min(1300px,92%);
+  margin:120px auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.about-section img{
+  width:100%;
+  border-radius:24px;
+  height:620px;
+  object-fit:cover;
+}
+
+.eyebrow{
+  color:var(--gold);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.about-section h2{
+  font-size:4rem;
+  font-family:'Cormorant Garamond',serif;
+  margin-bottom:24px;
+  line-height:1;
+}
+
+.about-section h2 em{
+  color:var(--gold);
+}
+
+.about-section p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:18px;
+}
+
+.founder-box{
+  margin-top:35px;
+  background:var(--panel);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:22px;
+  padding:28px;
+}
+
+.founder-box h3{
+  margin-bottom:8px;
+}
+
+.founder-box span{
+  color:var(--gold);
+}
+
+.mission{
+  width:min(1300px,92%);
+  margin:120px auto;
+}
+
+.mission-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:28px;
+}
+
+.mission-card{
+  background:var(--panel);
+  border-radius:24px;
+  padding:40px;
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+.mission-card h3{
+  margin-bottom:18px;
+  color:var(--gold);
+}
+
+.mission-card p{
+  color:var(--muted);
+  line-height:1.9;
+}
+
+footer{
+background:#090909;
+padding:80px 70px 30px;
+margin-top:120px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:60px;
+padding-bottom:50px;
+border-bottom:1px solid rgba(200,169,110,0.15);
+}
+
+.footer-title{
+font-size:12px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:var(--gold);
+margin-bottom:25px;
+}
+
+.footer-text,
+.footer-links a{
+line-height:2;
+color:#999;
+font-size:14px;
+text-decoration:none;
+}
+
+.footer-links{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.footer-bottom{
+padding-top:30px;
+text-align:center;
+color:#777;
+font-size:13px;
+}
+
+@media(max-width:980px){
+
+.about-section{
+grid-template-columns:1fr;
+}
+
+.page-hero h1{
+font-size:3.5rem;
+}
+
+}
+@media (max-width: 1024px){
+
+.container{
+    width:92%;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+}
+
+@media (max-width: 768px){
+
+  .nav-wrap{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:10px 0;
+  }
+
+  .logo{
+    justify-content:center;
+    text-align:center;
+    font-size:1rem;
+  }
+
+  .menu-toggle{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:4px;
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+
+  .menu-toggle span{
+    display:block;
+    width:18px;
+    height:2px;
+    background:#fff;
+    border-radius:999px;
+  }
+
+  .nav-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    z-index:1040;
+  }
+
+  .nav-overlay.active{
+    display:block;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:0;
+    right:-320px;
+    width:280px;
+    max-width:82vw;
+    height:100vh;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+    padding:72px 16px 24px;
+    background:#111;
+    border-left:1px solid rgba(255,255,255,0.08);
+    box-shadow:-12px 0 30px rgba(0,0,0,0.35);
+    transition:right 0.28s ease;
+    z-index:1050;
+  }
+
+  .nav-links.open{
+    right:0;
+  }
+
+  .nav-links a{
+    width:100%;
+    padding:10px 12px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    font-size:0.95rem;
+  }
+
+  .menu-close{
+    display:block;
+    position:absolute;
+    top:14px;
+    right:14px;
+    font-size:1.4rem;
+  }
+
+  .page-hero h1,
+  .about-section h2{
+    font-size:clamp(2rem, 8vw, 3rem);
+  }
+
+  .about-section,
+  .mission,
+  footer{
+    width:min(100%, 94%);
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .about-section{
+    gap:36px;
+  }
+
+  .about-section img{
+    height:auto;
+    max-height:420px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+}
+
+@media (max-width: 480px){
+
+  .nav-wrap{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+
+  .logo{
+    width:auto;
+    justify-content:center;
+    text-align:center;
+    font-size:0.95rem;
+  }
+
+  .nav-links{
+    width:280px;
+    max-width:82vw;
+  }
+
+  .nav-links a{
+    font-size:0.9rem;
+    text-align:left;
+    padding:10px 12px;
+  }
+
+  .page-hero{
+    padding:150px 15px 80px;
+  }
+
+  .mission-card,
+  .founder-box{
+    padding:22px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-wrap">
+
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Royal Mahira Group Logo">
+      <span>Royal Mahira Group</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-overlay"></div>
+
+    <div class="nav-links" id="navLinks">
+      <button class="menu-close" type="button" aria-label="Close menu">&times;</button>
+      <a href="index.html">Home</a>
+      <a href='services.html'>Service</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="contacts.html">Contact</a>
+    </div>
+
+  </div>
+</nav>
+</nav>
+
+<section class="page-hero">
+
+<div class="eyebrow">About Royal Mahira Group</div>
+
+<h1>Built on <em>Purity & Trust</em></h1>
+
+<p>
+Royal Mahira Group is committed to producing premium edible oils and food products with modern technology, strict hygiene, and trusted quality control.
+</p>
+
+</section>
+
+<section class="about-section">
+
+<div>
+<img src="images/founder.jpg" alt="">
+</div>
+
+<div>
+
+<div class="eyebrow">Founder</div>
+
+<h2>
+Leading with <br>
+<em>Vision</em>
+</h2>
+
+<p>
+Our founder believes that healthy food begins from pure raw materials and ethical production methods. Royal Mahira Group was established with a mission to provide safe and premium-quality edible oils and spices to every household.
+</p>
+
+<p>
+Through innovation, quality assurance, and sustainable production systems, we aim to become one of the most trusted food manufacturing companies in Bangladesh.
+</p>
+
+<div class="founder-box">
+
+<h3>MOHAMMAD MAHMUD ALAM</h3>
+
+<div style="line-height: 1.0;">
+    <span>Director</span><br><br>
+
+    <span>Marine Engineer. MEO-Class-1, Singapore Maritime Academy, Singapore.</span><br><br>
+
+    <span>Ex-Chief Engineer of Pacific International Line, Singapore.</span><br><br>
+
+    <span>Senior Chief Engineer of Maersk Line, Denmark.</span><br><br>
+    <span>Bsc. in Shipping and Maritime Science. </span><br><br>
+    <span>MSc. in Transportation and Logistics.</span><br><br>
+
+    <span>Technical Advisor of <i>Homigo Interior Solution</i>.</span>
+</div>
+</div>
+
+</div>
+
+<div>
+<img src="" alt="">
+</div>
+
+<div>
+
+
+
+<h2>
+Leading with <br>
+<em>Vision</em>
+</h2>
+
+<p>
+Our founder believes that healthy food begins from pure raw materials and ethical production methods. Royal Mahira Group was established with a mission to provide safe and premium-quality edible oils and spices to every household.
+</p>
+
+<p>
+Through innovation, quality assurance, and sustainable production systems, we aim to become one of the most trusted food manufacturing companies in Bangladesh.
+</p>
+
+<div class="founder-box">
+
+<h3>MD. ABUL KALAM</h3>
+
+<div style="line-height: 1.0
+;">
+    <span>Director</span><br><br>
+
+    <span>Founder of Hazi Cherag Ali Degree College</span><br>
+</div>
+</div>
+
+</div>
+
+
+</section>
+
+<section class="mission">
+
+<div class="mission-grid">
+
+<div class="mission-card">
+
+<h3>Our Mission</h3>
+
+<p>
+To manufacture healthy, hygienic, and premium edible oils and food products while maintaining international production standards and customer trust.
+</p>
+
+</div>
+
+<div class="mission-card">
+
+<h3>Our Vision</h3>
+
+<p>
+To become a leading food manufacturing brand recognized for purity, innovation, sustainability, and excellence in the edible oil industry.
+</p>
+
+</div>
+
+<div class="mission-card">
+
+<h3>Quality Commitment</h3>
+
+<p>
+We ensure strict quality control from seed selection to final packaging to maintain freshness, purity, and nutrition in every product.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<div class="logo">
+  <img src="images/logo.png" alt="Royal Mahira Group Logo">
+  <span>Royal Mahira Group</span>
+</div>
+
+<p class="footer-text" style="margin-top:25px;">
+Royal Mahira Group is a trusted edible oil and food manufacturing company focused on producing pure, healthy, and hygienic products using advanced processing technology.
+</p>
+</div>
+
+<div>
+<div class="footer-title">Quick Links</div>
+
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="products.html">Products</a>
+<a href="contact.html">Contact</a>
+<a href="about.html">About</a>
+</div>
+</div>
+
+<div>
+<div class="footer-title">Contact</div>
+
+<p class="footer-text">
+Bangladesh <br>
+Email: info@royalmahira.com <br>
+Phone: +8801XXXXXXXXX
+</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Royal Mahira Group. All Rights Reserved. Developed by ABRAR SHAHRIER ARNAB.
+</div>
+
+</footer>
+
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const overlay = document.querySelector('.nav-overlay');
+  const closeBtn = document.querySelector('.menu-close');
+
+  function openMenu() {
+    navLinks.classList.add('open');
+    overlay.classList.add('active');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    overlay.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  });
+</script>
+
+</body>
+</html>
